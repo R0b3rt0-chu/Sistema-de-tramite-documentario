@@ -16,12 +16,16 @@ Route::middleware(['auth'])->group(function () {
     
 // Módulo Clientes
 Route::get('/clientes', [ClienteController::class, 'index'])->name('clientes');
+Route::get('/clientes/crear', [ClienteController::class, 'create'])->name('clientes.create');
+Route::post('/clientes', [ClienteController::class, 'store'])->name('clientes.store');
 
 // Módulo Oficinas
 Route::get('/oficinas', [OficinaController::class, 'index'])->name('oficinas');
 
 // Módulo Trámites
 Route::get('/tramites', [TramiteController::class, 'index'])->name('tramites');
+Route::get('/tramites/crear', [TramiteController::class, 'create'])->name('tramites.create');
+Route::post('/tramites', [TramiteController::class, 'store'])->name('tramites.store');
 
 // Módulo Documentos
 Route::get('/documentos', [DocumentoController::class, 'index'])->name('documentos');

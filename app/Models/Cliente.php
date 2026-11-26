@@ -6,13 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Cliente extends Model
 {
-    protected $fillable = [
-        'tipo_documento', 'numero_documento', 'nombres',
-        'apellidos', 'telefono', 'email', 'especialidad'
-    ];
+    protected $table = 'clientes';
 
     public function tramites()
     {
-        return $this->hasMany(Tramite::class);
+        return $this->hasMany(Tramite::class, 'cliente_id');
     }
 }
